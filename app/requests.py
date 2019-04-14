@@ -38,7 +38,6 @@ def process_articles(news_list):
   '''
   news_articles = []
   for news_item in news_list:
-    source = news_item.get('source')
     title =  news_item.get('title')
     author = news_item.get('author')
     description = news_item.get('description')
@@ -47,7 +46,7 @@ def process_articles(news_list):
     content = news_item.get('content')
 
     if image:
-      news_object = News(source,title,author,description,image,date,content)
+      news_object = News(title,author,description,image,date,content)
       news_articles.append(news_object)
 
   return news_articles
