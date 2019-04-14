@@ -9,7 +9,7 @@ base_url = None
 
 def configure_request(app):
   global apiKey,base_url
-  apiKey = app.config['NEWS_API_KEY ']
+  apiKey = app.config['NEWS_API_KEY']
   base_url = app.config['NEWS_API_BASE_URL']
 
 
@@ -23,7 +23,7 @@ def get_news(category):
     get_news_data = url.read()
     get_news_response = json.loads(get_news_data)
 
-    news_results = None
+    news_articles = None
 
     if get_news_response['articles']:
         news_articles_list = get_news_response['articles']

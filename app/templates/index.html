@@ -1,5 +1,17 @@
+{% import 'macros.html' as macro %}
+
 {% block content %}
 
-
 <h1> It works girl!</h1>
+
+<h3> Top-Headlines News</h3>
+<ul>
+    {{ macro.displayNewsList(headlines)}}
+</ul>
+
+<h3> Breaking News</h3>
+<ul>
+    {{ macro.displayNewsList(breakingNews)}}
+</ul>
+
 {% endblock %}
