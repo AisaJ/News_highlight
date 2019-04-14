@@ -16,10 +16,14 @@ def index():
   return render_template('index.html',title = title, headlines= news_headlines, breakingNews = breaking_news)
 
 
-# @main.route('/sources/<>')
-# def source():
-#   '''
-#   View news pages function that returns the news articles available
-#   '''
+@main.route('/article/<title>')
+def article():
+  '''
+  View article page function that returns the articles' details
+  '''
+  article = get_article(id)
+  title = f'{article.title}'
   
-#   return render_template('source.html')
+  return render_template('article.html',title = title, article = article)
+  
+  
