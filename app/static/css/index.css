@@ -1,3 +1,11 @@
+
 body{
   font-family: 'Nanum Gothic', sans-serif;
+  overflow-x: hidden;
+}
+.horizontal-scroll-wrapper {
+  width: 40rem;
+  height: 25rem;
+  overflow-y: auto;
+  overflow-x: hidden;
 }

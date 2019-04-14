@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 {% import 'macros.html' as macro %}
 
+<!-- Styling block-->
+{% block styles %}
+  {{super()}}
+  <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Quicksand" rel="stylesheet">
+
+{% endblock %}
+
 {% block content %}
 <div class="container-fluid card ">
   <div class="row card">

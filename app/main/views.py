@@ -17,11 +17,11 @@ def index():
 
 
 @main.route('/article/<title>')
-def article():
+def article(title):
   '''
   View article page function that returns the articles' details
   '''
-  article = get_article(id)
+  article = get_article(title)
   title = f'{article.title}'
   
   return render_template('article.html',title = title, article = article)
