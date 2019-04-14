@@ -7,7 +7,10 @@ def index():
   '''
   View the root page 
   '''
-  return render_template('index.html')
+  news_headlines = get_news('top-headlines')
+  print(news_headlines)
+  title = 'Catch the latest and breaking news world wide'
+  return render_template('index.html',title = title, headlines= news_headlines)
 
 
 @main.route('/sources/<>')
@@ -15,4 +18,5 @@ def source():
   '''
   View news pages function that returns the news articles available
   '''
+  
   return render_template('source.html')
