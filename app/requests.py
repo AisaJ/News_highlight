@@ -30,3 +30,24 @@ def get_news(category):
         news_articles = process_articles(news_articles_list)
 
   return news_articles
+
+
+def process_articles(news_list):
+  '''
+  Function thaat processes the news articles to list of objects
+  '''
+  news_articles = []
+  for news_item in news_list:
+    source = news_item.get('source')
+    title =  news_item.get('title')
+    author = news_item.get('author')
+    description = news_item.get('description')
+    image = news_item.get('urlToImage')
+    date = news_item.get('publishedAt')
+    content = news_item.get('content')
+
+    if image:
+      news_object = News(source,title,author,description,image,date,content)
+      news_articles.append(news_object)
+
+  return news_articles
