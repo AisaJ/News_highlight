@@ -1,5 +1,5 @@
 .card-body{
-  background-color: #778899;
+  background-color: #f0f8ff;
 }
 body{
   font-family: 'Nanum Gothic', sans-serif;
@@ -10,4 +10,7 @@ body{
   height: 25rem;
   overflow-y: auto;
   overflow-x: hidden;
+}
+.cate{
+  text-decoration: none;
 }
