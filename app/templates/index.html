@@ -6,24 +6,39 @@
   {{super()}}
   <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
   <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Quicksand" rel="stylesheet">
-
+ 
 {% endblock %}
 
 {% block content %}
 <div class="container-fluid">
-  
-      <h1> It works girl!</h1>
-
-      <h3> Top-Headlines News</h3>
-      <p>
-          {{ macro.displayNewsList(headlines)}}
-      </p>
-      
-      <h3> Breaking News</h3>
-      <p>
-          {{ macro.displayNewsList(breakingNews)}}
-      </p>
+  <div class="row">
     
+        {% for source in sources %}
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 news-card card shadow p-3 mb-5 bg-white rounded">
+          <div class="card-body">
+            <h4 class="card-title">{{source.name}}</h4>
+            <p class="card-text">{{source.description}}</p>
+            <div class="card-footer">
+              <li><a>{{source.url}}</a></li>
+              <li><b>Category: {{source.category}}</b></li>
+              <li>{{source.country}}</li>
+            </div>
+          </div>        
+        </div>
+        {% endfor %}
+        
+        <h3> Top-Headlines News</h3>
+        <p>
+            {{ macro.displayNewsList(headlines)}}
+        </p>
+        
+        <h3> Breaking News</h3>
+        <p>
+            {{ macro.displayNewsList(breakingNews)}}
+        </p>    
+    
+  </div>
+      
 </div>
 
 {% endblock %}

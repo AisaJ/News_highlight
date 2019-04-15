@@ -1,4 +1,6 @@
-
+.card-body{
+  background-color: #778899;
+}
 body{
   font-family: 'Nanum Gothic', sans-serif;
   overflow-x: hidden;

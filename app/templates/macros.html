@@ -1,17 +1,19 @@
 {% macro displayNewsList(news_list) %}
-
-    {% for article in news_list %}
-    <div class="container-fluid">
-        <div class="row ">
-            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 news-card card-body">
-                <img src="{{ article.image }}" alt="{{ article.title }} image" class="img-responsive" > 
-                
-                <p class="text-center card-footer"><a href="/article/{{article.title}}">{{article.title}}</a></p>
-              
-            </div>
+<div class="container-fluid">
+    <div class="row ">
+    {% for source in news_list %}
+    
+            <!-- <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 news-card">
+              <div class=" card card-block">
+                <p>{{ source.name }}</p>                           
+                                 
+              </div> 
+              <p class="text-center card-footer"><a href="/article/{{article.title}}">{{article.title}}</a></p>                
+            </div> -->
+            {% endfor %}
         </div>      
     </div>
     
-    {% endfor %}
+    
 
 {% endmacro %}

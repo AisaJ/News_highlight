@@ -13,60 +13,60 @@ def configure_request(app):
   base_url = app.config['NEWS_API_BASE_URL']
 
 
-def get_news(category):
+def get_news():
   '''
   Function that gets the json response to our url request
   '''
-  get_news_url = base_url.format(category,apiKey)
+  get_news_url = base_url.format(apiKey)
 
   with urllib.request.urlopen(get_news_url) as url:
     get_news_data = url.read()
     get_news_response = json.loads(get_news_data)
 
-    news_articles = None
+    news_sources = None
 
-    if get_news_response['articles']:
-        news_articles_list = get_news_response['articles']
-        news_articles = process_articles(news_articles_list)
+    if get_news_response['sources']:
+        news_sources_list = get_news_response['sources']
+        news_sources= process_sources(news_sources_list)
 
-  return news_articles
+  return news_sources
 
 
-def process_articles(news_list):
+def process_sources(news_list):
   '''
-  Function thaat processes the news articles to list of objects
+  Function that processes the news sources to list of objects
   '''
-  news_articles = []
+  news_sources = []
   for news_item in news_list:
-    title =  news_item.get('title')
-    author = news_item.get('author')
+    id =  news_item.get('id')
+    name = news_item.get('name')
     description = news_item.get('description')
-    image = news_item.get('urlToImage')
-    date = news_item.get('publishedAt')
-    content = news_item.get('content')
+    url = news_item.get('url')
+    category = news_item.get('category')
+    country = news_item.get('country')
 
-    if image:
-      news_object = News(title,author,description,image,date,content)
-      news_articles.append(news_object)
+  
+    news_object = News(id,name,description,url,category,country)
+    news_sources.append(news_object)
 
-  return news_articles
+  return news_sources
 
-def get_article(title):
-  get_article_details_url = base_url.format(title,apiKey)
+def get_source(id):
+  get_source_details_url = base_url.format(id,apiKey)
 
-  with urllib.request.urlopen(get_article_details_url) as url:
-    article_details_data = url.open()
-    article_details_response = json.loads(article_details_data)
+  with urllib.request.urlopen(get_source_details_url) as url:
+    source_details_data = url.open()
+    source_details_response = json.loads(source_details_data)
 
     news_object = None
-    if article_details_response:
-      title = article_details_response.get('title')
-      author = article_details_response.get('author')
-      description = article_details_response.get('description')
-      image = article_details_response.get('urlToImage')
-      date = article_details_response.get('publishedAt')
-      content = article_details_response.get('content')
+    if source_details_response:
+      id = source_details_response.get('id')
+      name = source_details_response.get('name')
+      description = source_details_response.get('description')
+      url = source_details_response.get('url')
+      category = source_details_response.get('categry')
+      country = source_details_response.get('country')
 
-      news_object = Article(title,author,description,image,date,content)
+      news_object = Sources(id,name,description,url,category,country)
 
   return news_object
