@@ -14,14 +14,14 @@
   <div class="row">
     
         {% for source in sources %}
-        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 news-card card shadow p-3 mb-5 bg-white rounded">
-          <div class="card-body">
-            <h4 class="card-title">{{source.name}}</h4>
-            <p class="card-text">{{source.description}}</p>
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 news-card card shadow p-3 mb-5 bg-white rounded" style="margin-left:2%; margin-right:2%">
+          <div class="card-body" >
+            <h4 class="card-title"><b>{{source.name}}</b></h4>
+            <p class="card-text text-left">{{source.description}}</p>
             <div class="card-footer">
-              <li><a>{{source.url}}</a></li>
+              <li><a href="{{source.url}}" target="_blank">Go to site</a></li>
               <li><b>Category: {{source.category}}</b></li>
-              <li>{{source.country}}</li>
+              <li>{{source.language}}</li>
             </div>
           </div>        
         </div>

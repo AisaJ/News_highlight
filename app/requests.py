@@ -43,10 +43,10 @@ def process_sources(news_list):
     description = news_item.get('description')
     url = news_item.get('url')
     category = news_item.get('category')
-    country = news_item.get('country')
+    language = news_item.get('language')
 
   
-    news_object = News(id,name,description,url,category,country)
+    news_object = News(id,name,description,url,category,language)
     news_sources.append(news_object)
 
   return news_sources
@@ -65,8 +65,8 @@ def get_source(id):
       description = source_details_response.get('description')
       url = source_details_response.get('url')
       category = source_details_response.get('categry')
-      country = source_details_response.get('country')
+      language = source_details_response.get('language')
 
-      news_object = Sources(id,name,description,url,category,country)
+      news_object = Sources(id,name,description,url,category,language)
 
   return news_object
