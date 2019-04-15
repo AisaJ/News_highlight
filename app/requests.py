@@ -84,5 +84,7 @@ def process_articles(sources_list):
     if image:
       articles_results = Articles (id,author,title,description,image,date, content)
 
+  return articles_object
+
 
 

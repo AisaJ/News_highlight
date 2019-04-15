@@ -25,6 +25,6 @@ def source(id):
   source = get_source(id)
   name = f'{source.name}'
   
-  return render_template('article.html',name = name, source = source)
+  return render_template('source.html',name = name, source = source)
   
   
