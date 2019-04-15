@@ -17,14 +17,14 @@ def index():
   return render_template('index.html',sources = sources)
 
 
-@main.route('/source/<int:id>')
+@main.route('/source/<id>')
 def source(id):
   '''
   View article page function that returns the sources' details
   '''
   source = get_source(id)
-  name = f'{source.name}'
   
-  return render_template('source.html',name = name, source = source)
+  
+  return render_template('source.html', articles_list = source)
   
   

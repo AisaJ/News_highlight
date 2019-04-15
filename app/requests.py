@@ -1,5 +1,5 @@
 import urllib.request,json
-from .models import News
+from .models import News,Articles
 
 #Getting api key
 apiKey = None
@@ -58,21 +58,23 @@ def get_source(id):
   get_source_details_url = src_base_url.format(id,apiKey)
 
   with urllib.request.urlopen(get_source_details_url) as url:
-    source_details_data = url.open()
+    source_details_data = url.read()
     source_details_response = json.loads(source_details_data)
 
-    articles_object = None
-    if articles_results['articles']:
-      articles_results = process_articles(articles_results['articles'])
+    articles_results = None
 
-  return articles_object
+    if source_details_response['articles']:
+      articles_list = source_details_response['articles']
+      articles_results = process_articles(articles_list)
 
-def process_articles(sources_list):
+  return articles_results
+  
+def process_articles(articles_list):
   '''
   Function that processes the articles to objects
   '''
-  articles_object = []
-  for article_item in sources_list:
+  articles_results = []
+  for article_item in articles_list:
     id = article_item.get('id')
     author = article_item.get('author')
     title = article_item.get('title')
@@ -82,9 +84,9 @@ def process_articles(sources_list):
     content = article_item.get('content')
 
     if image:
-      articles_results = Articles (id,author,title,description,image,date, content)
-
-  return articles_object
+      article_object = Articles (id,author,title,description,image,date, content)
+      articles_results.append(article_object)
+  return articles_results
 
 
 
