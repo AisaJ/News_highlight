@@ -14,19 +14,17 @@
   <h2 style="text-align:center; font-weight:bold">TOP-HEADLINE: NEWS ARTICLES</h2>
   <div class="row card">
     {% for article in articles_list %}
-      <div class="col-xs-6 col-sm-6 col-md-12 col-lg-12 card-body imageUrl" style="background: url({{article.image}}) no-repeat center center; height: 30rem; width: auto; margin:2%">  
+      <div class="card-body imageUrl" style="background: url({{article.image}}) no-repeat center center; height: 30rem; width: auto; margin:2%">  
       </div>
-      <div class="card-footer">
-          <h3>{{article.title}}</h3>
-      </div>
+      <div class="card-footer" style="margin:2%">
+        <h3>{{article.title}}</h3>
 
-      <div class="col-xs-6 col-sm-6 col-md-12 col-lg-12 article-details">
-        <p class="desc">{{article.description}}</p>
-        <p class="author"><b><i>{{article.author}}</i></b></p>
-        <p class="date">{{article.date}}</p>
-        <p class="content">{{article.content}}</p>       
-
-      </div>
+        <p class="desc">{{article.description}}</p><br>
+        <p class="date"><b><i>Date Published: {{article.date|truncate(13)}}</i></b></p><br>
+        <p class="content">{{article.content}}</p><br>
+        <a href="{{article.url}}" target="_blank"><p class="more">Read More</p></a> 
+      </div>             
+     
       {% endfor %}
   </div>
 </div>

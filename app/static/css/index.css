@@ -14,3 +14,7 @@ body{
 .cate{
   text-decoration: none;
 }
+.more{
+  font-size: 1.5em;
+  text-decoration: underline;
+}
