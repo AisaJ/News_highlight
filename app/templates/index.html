@@ -11,15 +11,15 @@
 
 {% block content %}
 <div class="container-fluid">
-  <div class="row">
+  <div class="row head-section">
       <div class="card card-body text-center page-title">
-        <strong><h3 class="animated slideInRight slower">FIND A SOURCE..</h3></strong>
+        <strong><h2 class="animated slideInRight slower">YOUR NEWS SOURCE..</h2></strong>
         </div>
   </div>
   <div class="row">
         
         {% for source in sources %}
-        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 news-card card shadow p-3 mb-5 bg-white rounded" style="margin-left:2%; margin-right:2%">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 news-card card shadow p-3 mb-5 bg-white rounded" style="margin-left:4%; margin-right:4%">
           <div class="card-body" >
             <h4 class="card-title"><b>{{source.name}}</b></h4>
             <p class="card-text text-left">{{source.description}}</p>

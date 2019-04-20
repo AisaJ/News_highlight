@@ -17,6 +17,7 @@ body{
 .more{
   font-size: 1.5em;
   text-decoration: underline;
+  color: black;
 }
 .btn-dark{
   margin-top: 4%;
@@ -29,4 +30,13 @@ ul{
   text-align: right;
   padding: 0.5em;
   border-radius: 25px;
+}
+h2{
+  font-family: 'Quicksand',sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  font-style: italic;
+}
+.head-section{
+  margin-bottom: 1.5rem;
 }
